@@ -6,6 +6,8 @@ import {
   Skeleton,
   useMantineTheme,
 } from "@mantine/core";
+import styles from "../styles/Home.module.css";
+
 
 const HomeTiles = () => {
   const PRIMARY_COL_HEIGHT = 300;
@@ -14,7 +16,8 @@ const HomeTiles = () => {
   const SECONDARY_COL_HEIGHT = PRIMARY_COL_HEIGHT / 2 - theme.spacing.md / 2;
 
   return (
-    <Container my="md">
+    <Container my="md" className={styles.main}>
+       {/* <h1>Portal</h1> */}
       <SimpleGrid
         cols={2}
         spacing="md"
