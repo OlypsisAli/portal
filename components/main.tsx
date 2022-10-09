@@ -1,9 +1,24 @@
 import { useWeb3Auth } from "../services/web3auth";
 import styles from "../styles/Home.module.css";
 import { WALLET_ADAPTERS } from "@web3auth/base";
+import Image from "next/image";
+import logo from "../public/Transparent_Logo.png";
+import { Button, Tooltip } from "@mantine/core";
 
 const Main = () => {
-  const { provider, login, logout, getUserInfo, getAccounts, getBalance, signMessage, signTransaction, signAndSendTransaction, web3Auth, chain } = useWeb3Auth();
+  const {
+    provider,
+    login,
+    logout,
+    getUserInfo,
+    getAccounts,
+    getBalance,
+    signMessage,
+    signTransaction,
+    signAndSendTransaction,
+    web3Auth,
+    chain,
+  } = useWeb3Auth();
 
   const loggedInView = (
     <>
@@ -19,13 +34,13 @@ const Main = () => {
       <button onClick={signMessage} className={styles.card}>
         Sign Message
       </button>
-      {
-        (web3Auth?.connectedAdapterName === WALLET_ADAPTERS.OPENLOGIN || chain === "solana") &&
-        (<button onClick={signTransaction} className={styles.card}>
+      {(web3Auth?.connectedAdapterName === WALLET_ADAPTERS.OPENLOGIN ||
+        chain === "solana") && (
+        <button onClick={signTransaction} className={styles.card}>
           Sign Transaction
-      </button>)
-      }
-      
+        </button>
+      )}
+
       <button onClick={signAndSendTransaction} className={styles.card}>
         Sign and Send Transaction
       </button>
@@ -40,13 +55,24 @@ const Main = () => {
   );
 
   const unloggedInView = (
-    <button onClick={login} className={styles.card}>
-      Login
-    </button>
+    <>
+      <div className={styles.logincontainer}>
+        <Image className={styles.loginLogo} src={logo} />
+
+        <Button
+          // variant="gradient"
+          radius="xl"
+          size="xl"
+          onClick={login}
+          className={styles.loginButton}
+        >
+          LOGIN
+        </Button>
+      </div>
+    </>
   );
 
-  return <div className={styles.grid}>{provider ? loggedInView : unloggedInView}</div>;
+  return <div>{provider ? loggedInView : unloggedInView}</div>;
 };
-
 
 export default Main;

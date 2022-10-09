@@ -1,6 +1,14 @@
 import { ADAPTER_EVENTS, SafeEventEmitterProvider } from "@web3auth/base";
 import { Web3Auth } from "@web3auth/web3auth";
-import { createContext, FunctionComponent, ReactNode, useCallback, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  FunctionComponent,
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { CHAIN_CONFIG, CHAIN_CONFIG_TYPE } from "../config/chainConfig";
 import { WEB3AUTH_NETWORK_TYPE } from "../config/web3AuthNetwork";
 import { getWalletProvider, IWalletProvider } from "./walletProvider";
@@ -53,7 +61,11 @@ interface IWeb3AuthProps {
   chain: CHAIN_CONFIG_TYPE;
 }
 
-export const Web3AuthProvider: FunctionComponent<IWeb3AuthState> = ({ children, web3AuthNetwork, chain }: IWeb3AuthProps) => {
+export const Web3AuthProvider: FunctionComponent<IWeb3AuthState> = ({
+  children,
+  web3AuthNetwork,
+  chain,
+}: IWeb3AuthProps) => {
   const [web3Auth, setWeb3Auth] = useState<Web3Auth | null>(null);
   const [provider, setProvider] = useState<IWalletProvider | null>(null);
   const [user, setUser] = useState<unknown | null>(null);
@@ -61,7 +73,11 @@ export const Web3AuthProvider: FunctionComponent<IWeb3AuthState> = ({ children, 
 
   const setWalletProvider = useCallback(
     (web3authProvider: SafeEventEmitterProvider) => {
-      const walletProvider = getWalletProvider(chain, web3authProvider, uiConsole);
+      const walletProvider = getWalletProvider(
+        chain,
+        web3authProvider,
+        uiConsole
+      );
       setProvider(walletProvider);
     },
     [chain]
@@ -94,15 +110,21 @@ export const Web3AuthProvider: FunctionComponent<IWeb3AuthState> = ({ children, 
 
     async function init() {
       try {
-        const clientId = "BNzGDq7J-QSrdwWH3rKYWHoRr-EsgjKRnVdMv0zrQLo_--gIdABZKQ_d3jyZNcXT8nHvY_LtD-rn5i6GA7kO3vY";
+        const clientId =
+          "BNzGDq7J-QSrdwWH3rKYWHoRr-EsgjKRnVdMv0zrQLo_--gIdABZKQ_d3jyZNcXT8nHvY_LtD-rn5i6GA7kO3vY";
         setIsLoading(true);
         const web3AuthInstance = new Web3Auth({
           chainConfig: currentChainConfig,
           // get your client id from https://dashboard.web3auth.io
           clientId,
+          uiConfig: {
+            theme: "dark",
+          },
         });
 
-        const adapter = new OpenloginAdapter({ adapterSettings: { network: web3AuthNetwork, clientId } });
+        const adapter = new OpenloginAdapter({
+          adapterSettings: { network: web3AuthNetwork, clientId },
+        });
         web3AuthInstance.configureAdapter(adapter);
         subscribeAuthEvents(web3AuthInstance);
         setWeb3Auth(web3AuthInstance);
@@ -213,5 +235,9 @@ export const Web3AuthProvider: FunctionComponent<IWeb3AuthState> = ({ children, 
     signTransaction,
     signAndSendTransaction,
   };
-  return <Web3AuthContext.Provider value={contextProvider}>{children}</Web3AuthContext.Provider>;
+  return (
+    <Web3AuthContext.Provider value={contextProvider}>
+      {children}
+    </Web3AuthContext.Provider>
+  );
 };
