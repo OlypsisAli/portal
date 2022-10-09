@@ -42,7 +42,7 @@
 
 .nav {
   /* position: fixed; */
-  display: flex
+  display: flex;
   /* z-index: 100; */
 }
 
@@ -63,7 +63,6 @@
   flex-direction: row;
   margin-top: 12px;
   margin-left: 290px;
-
 }
 
 .dotRed {
@@ -74,4 +73,75 @@
   flex-direction: row;
 
   /* display: inline-block; */
+}
+
+.homeGridAddress {
+  background-color: rgba(67, 67, 67, 1);
+  height: 100px;
+  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.homeGridAddressContent {
+  margin-top: 11%;
+  flex-direction: row;
+}
+.AiOutlineQrcode {
+  size: 1000px;
+}
+
+.homeGridWallet {
+  background-color: rgba(67, 67, 67, 1);
+  height: 145px;
+  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.homeGridWalletContent {
+  margin-top: 25%;
+  flex-direction: row;
+}
+
+.homeGridNFT {
+  background-color: rgba(67, 67, 67, 1);
+  height: 145px;
+  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.homeGridNFTContent {
+  margin-top: 25%;
+  flex-direction: row;
+}
+
+.homeGridMessages {
+  background-color: rgba(67, 67, 67, 1);
+  height: 145px;
+  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+}
+.homeGridMessagesContent {
+  margin-top: 25%;
+  flex-direction: row;
+}
+.homeGridRD {
+  background-color: rgba(67, 67, 67, 1);
+  height: 145px;
+  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.homeGridRDContent {
+  margin-top: 25%;
+  flex-direction: row;
 }

@@ -8,9 +8,16 @@ import {
 } from "@mantine/core";
 import styles from "../styles/Home.module.css";
 import { useWeb3Auth } from "../services/web3auth";
+import { AiOutlineQrcode } from "react-icons/ai";
+import { AiFillCaretDown } from "react-icons/ai";
+import { BsWallet2 } from "react-icons/bs";
+import { IoMdPhotos } from "react-icons/io";
+import { AiOutlineMessage } from "react-icons/ai";
+import { ImCheckmark } from "react-icons/im";
+import { MdPermIdentity, MdSwapCalls } from "react-icons/md";
+import { BiWorld } from "react-icons/bi";
 
 const HomeTiles = () => {
-
   const [accounts, setAccounts] = useState();
   const PRIMARY_COL_HEIGHT = 300;
 
@@ -31,33 +38,28 @@ const HomeTiles = () => {
     chain,
   } = useWeb3Auth();
 
-
   useEffect(() => {
     if (provider) {
-
-      
       const getData = async () => {
-        let acc = await getAccounts();
-        console.log('acc',acc)
+        let acc = getAccounts;
+        console.log("acc", acc);
         // console.log("data", data);
       };
-      setTimeout(getData, 5000)
-
+      getData;
     }
     // return () => {
     // };
   }, [provider]);
 
   function getTest() {
-
-    console.log("aaa")
+    console.log("aaa");
   }
 
   // const fetchAccounts = async () => {
   //   // provider.getAccounts();
   //   let acc = await getAccounts;
   //   console.log('acc',acc)
-  //   // setAccounts(acc); 
+  //   // setAccounts(acc);
   // };
 
   // console.log("getUserInfo", getUserInfo, "getAccounts", getAccounts);
@@ -75,40 +77,69 @@ const HomeTiles = () => {
       >
         {/* <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} /> */}
         <Grid gutter="md">
-          <Grid.Col>
-            <Skeleton
-              height={SECONDARY_COL_HEIGHT}
-              radius="md"
-              animate={false}
-            />
+          <Grid.Col md={6} lg={3}>
+            <div className={styles.homeGridAddress}>
+              <div className={styles.homeGridAddressContent}>
+              <span><AiOutlineQrcode size={15} className={styles.AiOutlineQrcode} />    (0xce6BF...A8497)</span>
+            
+                <AiFillCaretDown size={15}  />
+                
+              </div>
+            </div>
           </Grid.Col>
           <Grid.Col span={6}>
-            <Skeleton
-              height={SECONDARY_COL_HEIGHT}
-              radius="md"
-              animate={false}
-            />
+            <div className={styles.homeGridWallet}>
+              <div className={styles.homeGridWalletContent}>
+                <BsWallet2 size={40} style={{ color: '#7A56EA'}} />
+                <br></br>
+                Wallet
+              </div>
+            </div>
           </Grid.Col>
           <Grid.Col span={6}>
-            <Skeleton
-              height={SECONDARY_COL_HEIGHT}
-              radius="md"
-              animate={false}
-            />
+            <div className={styles.homeGridNFT}>
+              <div className={styles.homeGridNFTContent}>
+                <IoMdPhotos size={40} style={{ color: '#7A56EA'}} />
+                <br></br>
+                NFT
+              </div>
+            </div>
           </Grid.Col>
           <Grid.Col span={6}>
-            <Skeleton
-              height={SECONDARY_COL_HEIGHT}
-              radius="md"
-              animate={false}
-            />
+            <div className={styles.homeGridMessages}>
+              <div className={styles.homeGridMessagesContent}>
+                <AiOutlineMessage size={40} style={{ color: '#7A56EA'}} />
+                <br></br>
+                Messages
+              </div>
+            </div>
           </Grid.Col>
           <Grid.Col span={6}>
-            <Skeleton
-              height={SECONDARY_COL_HEIGHT}
-              radius="md"
-              animate={false}
-            />
+            <div className={styles.homeGridRD}>
+              <div className={styles.homeGridRDContent}>
+                <MdPermIdentity size={40} style={{ color: '#7A56EA'}} />
+                <br></br>
+                Polygon ID
+              </div>
+            </div>
+          </Grid.Col>
+          <Grid.Col span={6}>
+            <div className={styles.homeGridRD}>
+              <div className={styles.homeGridRDContent}>
+                <BiWorld size={40}  style={{ color: '#7A56EA'}}/>
+                <br></br>
+                World ID
+              </div>
+            </div>
+          </Grid.Col>
+          <Grid.Col span={6}>
+            <div className={styles.homeGridRD}>
+              <div className={styles.homeGridRDContent}>
+                <MdSwapCalls size={40} style={{ color: '#7A56EA'}} />
+                <br></br>
+                Swap
+              </div>
+            </div>
           </Grid.Col>
         </Grid>
       </SimpleGrid>

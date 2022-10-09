@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Web3AuthProvider chain={chain} web3AuthNetwork={web3AuthNetwork}>
         <NavBar />
-        <Main />
+        {/* <Main /> */}
         <Component {...pageProps} />
       </Web3AuthProvider>
     </>
