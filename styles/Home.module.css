@@ -4,7 +4,7 @@
 
 .main {
   min-height: 100vh;
-  padding: 4rem 0;
+  padding: 0rem 0;
   flex: 1;
   /* display: flex; */
   flex-direction: column;
@@ -38,4 +38,40 @@
   width: 190px;
   height: 65px;
   /* font-family: 'Montserrat'; */
+}
+
+.nav {
+  /* position: fixed; */
+  display: flex
+  /* z-index: 100; */
+}
+
+.navLogo {
+  position: sticky;
+  max-width: 50px;
+  max-height: 50px;
+  border-spacing: 0px;
+  flex-direction: row;
+}
+
+.dotGreen {
+  height: 25px;
+  width: 25px;
+  background-color: Green;
+  border-radius: 50%;
+  display: inline-block;
+  flex-direction: row;
+  margin-top: 12px;
+  margin-left: 290px;
+
+}
+
+.dotRed {
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  border-radius: 50%;
+  flex-direction: row;
+
+  /* display: inline-block; */
 }

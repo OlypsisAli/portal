@@ -152,7 +152,7 @@ export const Web3AuthProvider: FunctionComponent<IWeb3AuthState> = ({ children, 
       uiConsole("provider not initialized yet");
       return;
     }
-    await provider.getAccounts();
+      await provider.getAccounts();
   };
 
   const getBalance = async () => {

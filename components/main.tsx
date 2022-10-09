@@ -72,7 +72,7 @@ const Main = () => {
     </>
   );
 
-  return <div>{provider ? null : unloggedInView}</div>;
+  return <div>{provider ? loggedInView : unloggedInView}</div>;
 };
 
 export default Main;

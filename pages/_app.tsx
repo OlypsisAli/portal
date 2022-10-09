@@ -5,6 +5,7 @@ import { CHAIN_CONFIG_TYPE } from "../config/chainConfig";
 import { WEB3AUTH_NETWORK_TYPE } from "../config/web3AuthNetwork";
 import { Web3AuthProvider } from "../services/web3auth";
 import Main from "../components/main";
+import NavBar from "../components/navBar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [web3AuthNetwork, setWeb3AuthNetwork] =
@@ -14,7 +15,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Web3AuthProvider chain={chain} web3AuthNetwork={web3AuthNetwork}>
-        {/* <Main /> */}
+        <NavBar />
+        <Main />
         <Component {...pageProps} />
       </Web3AuthProvider>
     </>
