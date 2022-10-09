@@ -28,7 +28,7 @@ const widgetProps: WidgetProps = {
   appName: "Portal",
   signalDescription: "Portal dapp",
   theme: "dark",
-  debug: true, // Recommended **only** for development
+  debug: false, // Recommended **only** for development
   onSuccess: (result) => console.log(result),
   onError: ({ code, detail }) => console.log({ code, detail }),
   onInitSuccess: () => console.log("Init successful"),
