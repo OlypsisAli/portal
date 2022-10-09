@@ -4,17 +4,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import HomeTiles from "../components/homeTiles";
-// import { Web3Auth } from "@web3auth/web3auth";
-// import {
-//   CHAIN_NAMESPACES,
-//   SafeEventEmitterProvider,
-//   WALLET_ADAPTERS,
-// } from "@web3auth/base";
-// import { Web3AuthCore } from "@web3auth/core";
-// import { OpenloginAdapter } from "@web3auth/openlogin-adapter";
-// // import RPC from "../services/web3RPC"; // for using web3.js
-// // import { Web3AuthProvider } from "../services/web3auth";
-// // import { useWeb3Auth } from "../services/web3auth";
 
 import { CHAIN_CONFIG_TYPE } from "../config/chainConfig";
 import { WEB3AUTH_NETWORK_TYPE } from "../config/web3AuthNetwork";

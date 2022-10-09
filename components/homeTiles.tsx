@@ -16,6 +16,25 @@ import { AiOutlineMessage } from "react-icons/ai";
 import { ImCheckmark } from "react-icons/im";
 import { MdPermIdentity, MdSwapCalls } from "react-icons/md";
 import { BiWorld } from "react-icons/bi";
+import dynamic from "next/dynamic";
+import { utils } from "@worldcoin/id";
+import { WidgetProps } from "@worldcoin/id";
+
+const WorldIDWidget = dynamic<WidgetProps>(() => import("@worldcoin/id").then((mod) => mod.WorldIDWidget), { ssr: false });
+
+const widgetProps: WidgetProps = {
+  actionId: "wid_staging_2c0700135b5c8d0dd113861884bb7b73",
+  signal: "user-id-1",
+  enableTelemetry: true,
+  appName: "Portal",
+  signalDescription: "Portal dapp",
+  theme: "dark",
+  debug: true, // Recommended **only** for development
+  onSuccess: (result) => console.log(result),
+  onError: ({ code, detail }) => console.log({ code, detail }),
+  onInitSuccess: () => console.log("Init successful"),
+  onInitError: (error) => console.log("Error while initialization World ID", error),
+};
 
 const HomeTiles = () => {
   const [accounts, setAccounts] = useState();
@@ -77,14 +96,9 @@ const HomeTiles = () => {
       >
         {/* <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} /> */}
         <Grid gutter="md">
-          <Grid.Col md={6} lg={3}>
+          <Grid.Col>
             <div className={styles.homeGridAddress}>
-              <div className={styles.homeGridAddressContent}>
-              <span><AiOutlineQrcode size={15} className={styles.AiOutlineQrcode} />    (0xce6BF...A8497)</span>
-            
-                <AiFillCaretDown size={15}  />
-                
-              </div>
+                <WorldIDWidget {...widgetProps} /> 
             </div>
           </Grid.Col>
           <Grid.Col span={6}>
