@@ -17,7 +17,6 @@ import { ImCheckmark } from "react-icons/im";
 import { MdPermIdentity, MdSwapCalls } from "react-icons/md";
 import { BiWorld } from "react-icons/bi";
 import dynamic from "next/dynamic";
-import { utils } from "@worldcoin/id";
 import { WidgetProps } from "@worldcoin/id";
 
 const WorldIDWidget = dynamic<WidgetProps>(() => import("@worldcoin/id").then((mod) => mod.WorldIDWidget), { ssr: false });
