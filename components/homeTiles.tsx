@@ -18,6 +18,7 @@ import { MdPermIdentity, MdSwapCalls } from "react-icons/md";
 import { BiWorld } from "react-icons/bi";
 import dynamic from "next/dynamic";
 import { WidgetProps } from "@worldcoin/id";
+import Wallet from "./Wallet";
 
 const WorldIDWidget = dynamic<WidgetProps>(() => import("@worldcoin/id").then((mod) => mod.WorldIDWidget), { ssr: false });
 
@@ -83,7 +84,7 @@ const HomeTiles = () => {
   // console.log("getUserInfo", getUserInfo, "getAccounts", getAccounts);
 
   return (
-    <Container my="md" className={styles.main}>
+    <Container my="md" className={styles.gridContainer}>
       {/* <button onClick={fetchAccounts} className={styles.card}>
         Get Accounts {accounts}
       </button> */}
@@ -156,6 +157,7 @@ const HomeTiles = () => {
           </Grid.Col>
         </Grid>
       </SimpleGrid>
+      <Wallet></Wallet>
     </Container>
   );
 };

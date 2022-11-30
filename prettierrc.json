@@ -1,0 +1,8 @@
+6 lines (6 sloc)  105 Bytes
+
+{
+  "bracketSpacing": false,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "arrowParens": "avoid"
+}

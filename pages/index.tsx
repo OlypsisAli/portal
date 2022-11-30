@@ -11,6 +11,7 @@ import { Web3AuthProvider } from "../services/web3auth";
 import Setting from "../components/setting";
 import Main from "../components/main";
 import { useWeb3Auth } from "../services/web3auth";
+import wallet from "../components/Wallet";
 
 const Home: NextPage = () => {
   const [web3AuthNetwork, setWeb3AuthNetwork] =
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
     signAndSendTransaction,
     web3Auth,
   } = useWeb3Auth();
+
 
   return (
     <div>
